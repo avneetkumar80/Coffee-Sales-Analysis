@@ -248,9 +248,9 @@ with st.sidebar:
         st.error("⚠️ Please select at least one option for each filter!")
 
     if st.button("Reset Filters", use_container_width=True):
-        st.session_state.months_filter = sorted(df["Month"].unique())
-        st.session_state.categories_filter = sorted(df["product_category"].unique())
-        st.session_state.locations_filter = sorted(df["store_location"].unique())
+        del st.session_state["months_filter"]
+        del st.session_state["categories_filter"]
+        del st.session_state["locations_filter"]
         st.rerun()
     
     st.markdown("</div>", unsafe_allow_html=True)
